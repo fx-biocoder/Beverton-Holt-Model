@@ -22,7 +22,7 @@ BevertonHolt = function(R, K, N0, Tf){
 evolucion_temporal <- BevertonHolt(0.5, 500, 2, 100)
 tiempo = 0:100
 
-# 4 - Creación de un dataframe para almacenar 
+# 4 - Creación de un dataframe para almacenar los datos
 grafico <- data.frame(evolucion_temporal, tiempo)
 
 # 5- Gráfico del comportamiento de la población
