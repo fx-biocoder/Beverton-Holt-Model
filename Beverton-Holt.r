@@ -11,7 +11,7 @@ BevertonHolt = function(R, K, N0, Tf){
   poblacion = numeric()
 
   for(t in 0:Tf){
-    Nt = (K * N0)/(N0 + (K - N0)* exp(-R*t)) 
+    Nt = (K * N0)/(N0 + (K - N0)* exp(-R*t)) #  Para cada valor de tiempo, se calcula un tamaño poblacional
     poblacion <- c(poblacion, Nt) 
   }
   
@@ -35,11 +35,12 @@ comportamiento <- ggplot(grafico,
                            y = "Tamaño de la población")
 
 # 6 - En caso de que K sea aleatoria y siga una distribución normal con media y desvío conocidos, puede adaptarse así:
-BevertonHolt = function(R, N0, Tf){
+BevertonHolt = function(R, N0, Tf, k_mean, k_sdev){
   poblacion = numeric()
 
   for(i in 1:Tf){
-    K <- rnorm(1, Media, DesvíoEstándar)
+    # Uso de la función rnorm() para generar valores aleatorios normales de K
+    K <- rnorm(1, k_mean, k_sdev) # Donde "k_mean" es el valor medio de K, y "k_sdev" el desvío estándar
     Nt = (K * N0)/(N0 + (K - N0)* exp(-R*i)) 
     poblacion <- c(poblacion, Nt) 
     }
