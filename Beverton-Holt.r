@@ -38,7 +38,7 @@ comportamiento <- ggplot(grafico,
 BevertonHolt = function(R, N0, Tf, k_mean, k_sdev){
   poblacion = numeric()
 
-  for(i in 1:Tf){
+  for(i in 0:Tf){
     # Uso de la función rnorm() para generar valores aleatorios normales de K
     K <- rnorm(1, k_mean, k_sdev) # Donde "k_mean" es el valor medio de K, y "k_sdev" el desvío estándar
     Nt = (K * N0)/(N0 + (K - N0)* exp(-R*i)) 
